@@ -1,0 +1,6 @@
+pytest
+
+azure-mgmt-resource
+azure-identity
+
+cloudicorn-cli
