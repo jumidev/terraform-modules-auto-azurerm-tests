@@ -1,2 +1,3 @@
 *.hclt linguist-language=HCL
+*.tpl  linguist-language=Bash
 
