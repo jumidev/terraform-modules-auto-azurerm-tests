@@ -6,7 +6,7 @@ venv:
 	(source venv/bin/activate && pip install -r requirements.txt)
 
 test_venv:
-	(source venv/bin/activate && cd tests && python3 -m pytest pytest_batch_01.py)
+	(source venv/bin/activate && bash -x runtests.sh)
 
 test:
-	cd tests && python3 -m pytest pytest_batch_01.py
+	bash -x runtests.sh
