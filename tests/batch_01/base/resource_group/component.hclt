@@ -1,0 +1,16 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "base/resource_group" 
+}
+
+inputs = {
+   location = "northeurope" 
+   name = "test_${COMPONENT_DIRNAME}_${run_id}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "test/${run_id}/${COMPONENT_PATH}" 
+}
+

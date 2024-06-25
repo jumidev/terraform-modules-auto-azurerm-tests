@@ -1,0 +1,21 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "private_dns/private_dns_zone_virtual_network_link" 
+}
+
+inputs = {
+   name = "test_${COMPONENT_DIRNAME}_${run_id}" 
+}
+
+component_inputs = {
+   private_dns_zone_name = "batch_02/private_dns/private_dns_zone:name" 
+   resource_group_name = "batch_01/base/resource_group:name" 
+   virtual_network_id = "batch_02/network/virtual_network:id" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "test/${run_id}/${COMPONENT_PATH}" 
+}
+

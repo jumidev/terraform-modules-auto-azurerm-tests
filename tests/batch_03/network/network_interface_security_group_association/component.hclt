@@ -1,0 +1,19 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/network_interface_security_group_association" 
+}
+
+inputs = {
+}
+
+component_inputs = {
+   network_interface_id = "batch_02/network/network_interface:id" 
+   network_security_group_id = "batch_02/network/network_security_group:id" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "test/${run_id}/${COMPONENT_PATH}" 
+}
+

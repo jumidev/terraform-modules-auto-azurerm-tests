@@ -1,0 +1,29 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/network_interface" 
+}
+
+inputs = {
+   ip_configuration =    {
+      primary =       {
+         private_ip_address_version = "IPv4"   
+         private_ip_address_allocation = "Dynamic"   
+         primary = "true"   
+      }
+  
+   }
+ 
+   location = "northeurope" 
+   name = "test_${COMPONENT_DIRNAME}_${run_id}" 
+}
+
+component_inputs = {
+   resource_group_name = "batch_01/base/resource_group:name" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "test/${run_id}/${COMPONENT_PATH}" 
+}
+

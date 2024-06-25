@@ -1,0 +1,19 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "dns/dns_zone" 
+}
+
+inputs = {
+   name = "test_${COMPONENT_DIRNAME}_${run_id}" 
+}
+
+component_inputs = {
+   resource_group_name = "batch_01/base/resource_group:name" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "test/${run_id}/${COMPONENT_PATH}" 
+}
+
