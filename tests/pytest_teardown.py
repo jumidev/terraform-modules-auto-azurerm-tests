@@ -26,8 +26,8 @@ class TestAzureComponents(unittest.TestCase):
 
 
     # DELETE ephemeral resource group
-    def tearDown(self):
-         self.resource_client.resource_groups.begin_delete("test_{}".format(self.run_id))
+    def test_tearDown(self):
+        self.resource_client.resource_groups.begin_delete("test_resource_group_{}".format(self.run_id))
 
     # def test_rg(self):
 
