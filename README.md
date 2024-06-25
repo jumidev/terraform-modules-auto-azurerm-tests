@@ -37,7 +37,7 @@ export TEST_AZURE_STORAGE_CONTAINER=test
 
 ## Setup virtual env
 
-The included makefile has a task to automatically create a virtual env and populate with necessary requirements (including the latest version of cloudicorn)
+The included makefile has a task to automatically create a virtual env and populate with necessary requirements (including the latest release of cloudicorn-cli)
 
 `make venv`
 
@@ -45,17 +45,24 @@ You can also install requirements outside of a virtual env:
 
 `pip3 install --user -r requirements.txt`
 
-If you want to use the Either install from pip or clone the git repo and install.
+### Cloudicorn-cli
+
+If you do not want to use the pypi release of cloudicorn-cli, want to use the Either install from pip or clone the git repo and install.
 
 ## make sure terraform / opentofu is installed
 
 `cloudcorn_setup --terraform`
 
 
+
 # Running tests
 
 Included Makefile has two tasks to run tests:
 
-`make test_venv` # runs tests using libraries in the virtual env
+`make test_venv` # runs tests using the virtual env
 
 `make test`  # doesn't use the venv
+
+Tests create a resource group with a random name (e.g. test_a3f4f654).  To avoid cluttering your azure subscription, this resource group is automatically deleted (along with all sub resources) after every test run.
+
+Terraform states are NOT deleted, they will persist in the specified azure container.
